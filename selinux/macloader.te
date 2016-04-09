@@ -9,3 +9,7 @@ allow macloader self:capability { dac_override chown fowner fsetid };
 allow macloader system_data_file:dir w_dir_perms;
 
 domain_trans(init, rootfs, macloader)
+
+# DirtyUnicorns
+allow macloader system_data_file:dir { add_name };
+allow macloader system_data_file:file { open };

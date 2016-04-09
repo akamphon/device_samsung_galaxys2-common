@@ -5,3 +5,14 @@ allow sysinit firmware_exynos:file { read open write getattr setattr create unli
 allow sysinit sysinit:capability { dac_override chown fowner fsetid };
 allow sysinit unlabeled:dir { search };
 allow sysinit surfaceflinger_exec:file { getattr };
+
+# DirtyUnicorns
+allow sysinit surfaceflinger_exec:file { getattr };
+allow sysinit system_block_device:blk_file { read open ioctl };
+allow sysinit kernel:process { setsched };
+allow sysinit system_file:dir { add_name };
+allow sysinit proc:file { write };
+allow sysinit proc_dirty_ratio:file { write open read getattr };
+allow sysinit self:capability { fsetid };
+allow sysinit system_data_file:file { open };
+allow sysinit net_radio_prop:property_service { set };
